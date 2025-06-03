@@ -1,6 +1,6 @@
 // components/CartItem.tsx
 import React from "react";
-import type { Product } from "../entities/Product";
+import type { Product } from "../schemas/productSchema";
 import { useActiveCart } from "../hooks/carts/useActiveCart";
 
 
@@ -20,7 +20,7 @@ const CartItem: React.FC<CartItemProps> = ({ product, userId }) => {
     const productId = (form.productId as HTMLInputElement).value;
 
     removeItemFromCart(Number(userId), Number(productId));
-    alert(`Product with ID ${productId} removed from cart.`);
+    alert(`${product.title} removed from cart.`);
   }
   
   return (

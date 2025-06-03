@@ -3,6 +3,8 @@ import { useProducts } from "../hooks/products/useProduts";
 import { useActiveCart } from "../hooks/carts/useActiveCart";
 import { useCarts } from "../hooks/carts/useCarts";
 import CartItem from "../components/CartItem";
+import { useUsers } from "../hooks/users/useUsers";
+import PleaseLogin from "../components/PleaseLogin";
 
 export default function Cart() {
 
@@ -10,6 +12,9 @@ export default function Cart() {
   const { cart, clearUserCart } = useActiveCart()
   const { carts, finishCart } = useCarts()
   const { products } = useProducts()
+  const { users } = useUsers()
+
+  const validadeUser = users.find((user) => user.id === Number(userId));
 
   let localCart = []
   for (let index = 0; index < cart.length; index++) {
@@ -52,42 +57,46 @@ export default function Cart() {
   console.log("verificação dos carrinhos", carts);
 
   return (
-    <div>
-      <h1>Cart</h1>
-      <p>This is the cart page.</p>
-      <div>
-        {finalCart.length > 0 ? (
-          <>
-            <div>
-              {finalCart.map(product => (
-                <CartItem
-                  key={product.id}
-                  product={product}
-                  userId={Number(userId)}
-                />
-              ))}
-              <div>
-                <h2 className="text-xl font-semibold">Total: ${total}</h2>
-                <form onSubmit={handleCheckout} className="mt-4">
-                  <button className="bg-blue-500 text-white px-4 py-2 rounded mt-4">Checkout</button>
-                </form>
-              </div>
-              <Link to={`/${userId}/products`} className="inline-block mt-4 text-blue-500 hover:underline">
-                Back to Products
-              </Link>
+    <>
+      {validadeUser ?
+        (
+          <div>
+            <h1>Cart</h1>
+            <p>This is the cart page.</p>
+            {finalCart.length > 0 ? (
+              <>
+                <div>
+                  {finalCart.map(product => (
+                    <CartItem
+                      key={product.id}
+                      product={product}
+                      userId={Number(userId)}
+                    />
+                  ))}
+                  <div>
+                    <h2 className="text-xl font-semibold">Total: ${total}</h2>
+                    <form onSubmit={handleCheckout} className="mt-4">
+                      <button className="bg-blue-500 text-white px-4 py-2 rounded mt-4">Checkout</button>
+                    </form>
+                  </div>
+                  <Link to={`/${userId}/products`} className="inline-block mt-4 text-blue-500 hover:underline">
+                    Back to Products
+                  </Link>
 
-            </div>
-          </>
-        ) : (
-          <>
-            <p>No products in cart.</p>
-            <Link to={`/${userId}/products`} className="inline-block mt-4 text-blue-500 hover:underline">
-              Back to Products
-            </Link>
-          </>
-        )}
-      </div>
-    </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <p>No products in cart.</p>
+                <Link to={`/${userId}/products`} className="inline-block mt-4 text-blue-500 hover:underline">
+                  Back to Products
+                </Link>
+              </>
+            )}
+          </div>
+        ) : (<PleaseLogin />)
+      }
+    </>
   )
 }
 
