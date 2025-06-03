@@ -17,11 +17,16 @@ Front-end:
 
 🧰 Instalação
 
+Abra o terminal na pasta do projeto e execute os seguintes abaixo:
+
 1. Instalar dependências:
 npm install
 
 2. Instalar bibliotecas adicionais:
 npm install tailwindcss @tailwindcss/vite zod react-router-dom
+
+3. Iniciar o servidor de desenvolvimento:
+npm run dev
 
 -----------------------
 
@@ -55,7 +60,7 @@ Após finalizar a compra, um novo carrinho é criado via método POST. A respost
 -----------------------
 
 🎥 Link de demonstração em vídeo:
-*Em breve...*
+https://drive.google.com/file/d/1Fbl9YzcEsKngbISZbaUSCXT0cG1Zeznd/view?usp=drive_link
 
 -----------------------
 
