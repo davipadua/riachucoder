@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useProduct } from "../hooks/products/useProductById";
 import { useUsers } from "../hooks/users/useUsers";
 import { useActiveCart } from "../hooks/carts/useActiveCart";
-import PleaseMakeLogin from "../components/PleaseMakeLogin";
+import PleaseMakeLogin from "../components/PleaseLogin";
 
 
 export default function ShowProduct() { 

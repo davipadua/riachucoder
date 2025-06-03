@@ -2,7 +2,7 @@ import { CardProduct } from "../components/CardProduct";
 import { useProducts } from "../hooks/products/useProduts";
 import { useParams } from "react-router-dom";
 import { useUsers } from "../hooks/users/useUsers";
-import PleaseMakeLogin from "../components/PleaseMakeLogin";
+import PleaseLogin from "../components/PleaseLogin";
 
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
             ))}
           </div>
         </>
-      ) : (<PleaseMakeLogin />)}
+      ) : (<PleaseLogin />)}
     </div>
   );
 }
