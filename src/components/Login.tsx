@@ -1,9 +1,15 @@
+import { useState } from "react";
 import { useUsers } from "../hooks/users/useUsers";
 
 export default function Login() {
 
+  const [hiddenLabel, setHiddenLabel] = useState("hidden");
 
-const {users} = useUsers();
+
+  const { users } = useUsers();
+
+
+  
 
   const handleLogin = (event: React.FormEvent) => {
     event.preventDefault();
@@ -11,23 +17,20 @@ const {users} = useUsers();
     const email = (form.email as HTMLInputElement).value;
     const password = (form.password as HTMLInputElement).value;
 
-    console.log("Email:", email);
-    console.log("Password:", password);
-
-    // Simulate a user login check
     const user = users.find(user => user.email === email && user.password === password);
     if (user) {
       console.log("Login successful for user:", user);
       // Redirect to home or dashboard
-      window.location.href = `/${user.id}/products`; // Adjust the path as needed
+      window.location.href = `/${user.id}/products`;
     } else {
       console.error("Login failed: Invalid email or password");
-      alert("Invalid email or password. Please try again.");
+      setHiddenLabel(" block text-red-500 mt-2 ");
+
     }
   }
 
   return (
-    <>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <form onSubmit={handleLogin} className="flex flex-col gap-4">
         <h1 className="text-2xl font-bold mb-4">Login</h1>
         <label className="flex flex-col">
@@ -50,8 +53,9 @@ const {users} = useUsers();
             required
             className="border border-gray-300 p-2 rounded"
             placeholder="Enter your password"
-          /> 
+          />
         </label>
+        <label className={hiddenLabel}>Incorrect email or password.</label>
         <button
           type="submit"
           className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition-colors"
@@ -59,6 +63,6 @@ const {users} = useUsers();
           Login
         </button>
       </form>
-    </>
+    </div>
   )
 }
