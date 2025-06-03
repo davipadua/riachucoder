@@ -1,55 +1,72 @@
-# React + TypeScript + Vite
+🛒 Riachucoder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi desenvolvido como parte do desafio técnico para Desenvolvedor Frontend Júnior da empresa Scoder. A aplicação simula um catálogo de produtos fictícios, permitindo que o usuário adicione/remova itens no carrinho e finalize a compra (simulação).
+O nome "Riachucoder" é uma brincadeira com os nomes Scoder e Riachuelo.
 
-Currently, two official plugins are available:
+-----------------------
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+Front-end:
+- React.js com Vite
+- React Router
+- Zod
+- Tailwind CSS
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-----------------------
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+🧰 Instalação
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Instalar dependências:
+npm install
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. Instalar bibliotecas adicionais:
+npm install tailwindcss @tailwindcss/vite zod react-router-dom
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-# riachucoder
+-----------------------
+
+🧪 Como Acessar e Testar o Projeto
+
+Login:
+http://localhost:5173/
+
+- É necessário estar logado para visualizar os produtos.
+- Você pode:
+  - Usar credenciais da API da FakeStore: https://fakestoreapi.com/users
+  - Ou usar o usuário pré-definido:
+    - Email: morrison@gmail.com
+    - Senha: 83r5^_
+
+Páginas:
+
+- Produtos:
+http://localhost:5173/:userId/products
+
+  ⚠️ Pode passar o userId diretamente na URL para facilitar os testes (não recomendado em produção).
+
+- Produto individual:
+http://localhost:5173/:userId/products/:productId
+
+- Carrinho (finalização da compra):
+http://localhost:5173/:userId/cart
+
+Após finalizar a compra, um novo carrinho é criado via método POST. A resposta é visível no console, mas a FakeStore API não salva de forma permanente (recarregar a página apaga os dados).
+
+-----------------------
+
+🎥 Link de demonstração em vídeo:
+*Em breve...*
+
+-----------------------
+
+💬 Considerações Finais
+
+Gostei muito de desenvolver esse projeto! Ele representa bem minha evolução e dedicação.
+Apesar do prazo limitado, consegui aplicar boas práticas e tecnologias modernas.
+Planejo continuar trabalhando neste projeto, adicionando:
+
+- Página de histórico de pedidos.
+- Dashboard para usuários admin.
+- Melhorias de segurança e performance.
+
+Agradeço pela oportunidade! 😊
