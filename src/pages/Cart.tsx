@@ -65,7 +65,7 @@ export default function Cart() {
             <p>This is the cart page.</p>
             {finalCart.length > 0 ? (
               <>
-                <div>
+                <div className="flex flex-col">
                   {finalCart.map(product => (
                     <CartItem
                       key={product.id}
