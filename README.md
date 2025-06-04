@@ -60,7 +60,7 @@ Após finalizar a compra, um novo carrinho é criado via método POST. A respost
 -----------------------
 
 🎥 Link de demonstração em vídeo:
-https://drive.google.com/file/d/1Fbl9YzcEsKngbISZbaUSCXT0cG1Zeznd/view?usp=drive_link
+https://drive.google.com/file/d/16Mp7bnYygG3QClz6aHec6JZHmbYbEb65/view?usp=sharing
 
 -----------------------
 
